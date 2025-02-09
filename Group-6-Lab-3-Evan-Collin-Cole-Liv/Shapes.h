@@ -15,16 +15,11 @@ public:
 
 	virtual int area();
 
-	Shape operator+(Shape& rhs);
-	Shape operator*(int x);
-
 	void setH(int h);
 	void setW(int w);
 
 	int getH();
 	int getW();
-
-	friend ostream& operator<<(ostream& cout, Shape rhs);
 };
 
 class Rectangle :public Shape {
@@ -32,6 +27,11 @@ public:
 
 	Rectangle();
 	Rectangle(int height, int width);
+
+	Rectangle operator+(Rectangle& rhs);
+	Rectangle operator*(int x);
+
+	friend ostream& operator<<(ostream& cout, Rectangle rhs);
 };
 
 class Square :public Shape {
@@ -39,6 +39,12 @@ public:
 
 	Square();
 	Square(int s);
+
+	Square operator+(Square& rhs);
+	Square operator*(int x);
+
+	friend ostream& operator<<(ostream& cout, Square rhs);
 };
 
-ostream& operator<<(ostream& cout, Shape rhs);
+ostream& operator<<(ostream& cout, Rectangle rhs);
+ostream& operator<<(ostream& cout, Square rhs);
